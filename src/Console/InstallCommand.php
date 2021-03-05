@@ -11,7 +11,7 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'sail:install {--with= : The services that should be included in the installation}';
+    protected $signature = 'sail:install {--with= : The services that should be included in the installation} {--host= : The domain to use without the protocol}';
 
     /**
      * The console command description.
@@ -35,8 +35,14 @@ class InstallCommand extends Command
             $services = $this->gatherServicesWithSymfonyMenu();
         }
 
-        $this->buildDockerCompose($services);
-        $this->replaceEnvVariables($services);
+        if ($this->option('host')) {
+            $host = $this->option('host');
+        } else {
+            $host = 'laravel.test';
+        }
+
+        $this->buildDockerCompose($services, $host);
+        $this->replaceEnvVariables($services, $host);
 
         $this->info('Sail scaffolding installed successfully.');
     }
@@ -63,9 +69,10 @@ class InstallCommand extends Command
      * Build the Docker Compose file.
      *
      * @param  array  $services
+     * @param  string $host
      * @return void
      */
-    protected function buildDockerCompose(array $services)
+    protected function buildDockerCompose(array $services, string $host)
     {
         $depends = collect($services)
             ->filter(function ($service) {
@@ -91,6 +98,7 @@ class InstallCommand extends Command
 
         $dockerCompose = file_get_contents(__DIR__ . '/../../stubs/docker-compose.stub');
 
+        $dockerCompose = str_replace('{{host}}', $host, $dockerCompose);
         $dockerCompose = str_replace('{{depends}}', empty($depends) ? '' : '        '.$depends, $dockerCompose);
         $dockerCompose = str_replace('{{services}}', $stubs, $dockerCompose);
         $dockerCompose = str_replace('{{volumes}}', $volumes, $dockerCompose);
@@ -105,9 +113,10 @@ class InstallCommand extends Command
      * Replace the Host environment variables in the app's .env file.
      *
      * @param  array  $services
+     * @param  string $host
      * @return void
      */
-    protected function replaceEnvVariables(array $services)
+    protected function replaceEnvVariables(array $services, string $host)
     {
         $environment = file_get_contents($this->laravel->basePath('.env'));
 
@@ -126,6 +135,8 @@ class InstallCommand extends Command
             $environment .= "\nSCOUT_DRIVER=meilisearch";
             $environment .= "\nMEILISEARCH_HOST=http://meilisearch:7700\n";
         }
+
+        $environment .= "\nAPP_SERVICE=".$host;
 
         file_put_contents($this->laravel->basePath('.env'), $environment);
     }
