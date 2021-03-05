@@ -20,6 +20,21 @@ Sail provides a Docker powered local development experience for Laravel that is 
 
 Laravel Sail is inspired by and derived from [Vessel](https://github.com/shipping-docker/vessel) by [Chris Fidao](https://github.com/fideloper). If you're looking for a thorough introduction to Docker, check out Chris' course: [Shipping Docker](https://serversforhackers.com/shipping-docker).
 
+## Pre-documention Setup
+
+Add this to your project's `composer.json`:
+
+```
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/laserred/sail.git"
+        }
+    ]
+```
+
+Set your domain in your .env using `APP_SERVICE`, otherwise it will default to [laravel.test](http://laravel.test). Don't forget to also add your chosen domain to your hosts file and point it to `127.0.0.1`.
+
 ## Official Documentation
 
 Documentation for Sail can be found on the [Laravel website](https://laravel.com/docs/sail).
