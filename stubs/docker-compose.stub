@@ -8,17 +8,28 @@ services:
             args:
                 WWWGROUP: '${WWWGROUP}'
         image: sail-8.0/app
-        ports:
-            - '${APP_PORT:-80}:80'
+        expose:
+            - '${APP_PORT:-80}'
         environment:
             WWWUSER: '${WWWUSER}'
             LARAVEL_SAIL: 1
+            VIRTUAL_HOST: '${APP_SERVICE}'
         volumes:
             - '.:/var/www/html'
         networks:
             - sail
 {{depends}}
 {{services}}
+    nginx-proxy:
+        image: ninanung/nginx-proxy
+        ports:
+            - '80:80'
+        environment:
+            DEFAULT_HOST: '${APP_SERVICE}'
+        networks:
+            - sail
+        volumes:
+            - /var/run/docker.sock:/tmp/docker.sock:ro
 networks:
     sail:
         driver: bridge
