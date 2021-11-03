@@ -1,6 +1,213 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/sail/compare/v1.4.4...1.x)
+## [Unreleased](https://github.com/laravel/sail/compare/v1.12.2...1.x)
+
+
+## [v1.12.2 (2021-10-26)](https://github.com/laravel/sail/compare/v1.12.1...v1.12.2)
+
+### Fixed
+- Revert "Adds a check and error for APP_SERVICE being accurate." ([#264](https://github.com/laravel/sail/pull/264))
+
+
+## [v1.12.1 (2021-10-26)](https://github.com/laravel/sail/compare/v1.12.0...v1.12.1)
+
+### Changed
+- Adds a check and error for `APP_SERVICE` being accurate ([#258](https://github.com/laravel/sail/pull/258))
+- Allow `NODE_VERSION` variable ([#261](https://github.com/laravel/sail/pull/261))
+
+
+## [v1.12.0 (2021-10-12)](https://github.com/laravel/sail/compare/v1.11.0...v1.12.0)
+
+### Added
+- PHP 8.1 support ([#254](https://github.com/laravel/sail/pull/254))
+
+
+## [v1.11.0 (2021-10-01)](https://github.com/laravel/sail/compare/v1.10.1...v1.11.0)
+
+### Added
+- Added support for "docker compose" command syntax
+
+
+## [v1.10.2 (2021-09-28)](https://github.com/laravel/sail/compare/v1.10.1...v1.10.2)
+
+### Changed
+- Environment variable for share subdomain ([#239](https://github.com/laravel/sail/pull/239))
+
+
+## [v1.10.1 (2021-08-24)](https://github.com/laravel/sail/compare/v1.10.0...v1.10.1)
+
+### Changed
+- Adding extra_hosts to the compose file stubs ([#222](https://github.com/laravel/sail/pull/222))
+- Allow skip of sail checks ([#224](https://github.com/laravel/sail/pull/224))
+
+
+## [v1.10.0 (2021-08-17)](https://github.com/laravel/sail/compare/v1.9.0...v1.10.0)
+
+### Added
+- Add devcontainer to install command ([#218](https://github.com/laravel/sail/pull/218))
+
+### Changed
+- Removes hardcoded service name from `APP_URL` in `dusk` and `dusk:fails` command ([#219](https://github.com/laravel/sail/pull/219))
+
+
+## [v1.9.0 (2021-08-03)](https://github.com/laravel/sail/compare/v1.8.6...v1.9.0)
+
+### Added
+- Xdebug 3.0 support ([#209](https://github.com/laravel/sail/pull/209))
+
+### Changed
+- Make sail script publishable ([#201](https://github.com/laravel/sail/pull/201), [#202](https://github.com/laravel/sail/pull/202))
+- Pass additional arguments to shell / root-shell commands ([#208](https://github.com/laravel/sail/pull/208))
+
+### Fixed
+- Call source `.env` before exporting bash environment variables ([#207](https://github.com/laravel/sail/pull/207))
+
+
+## [v1.8.6 (2021-07-15)](https://github.com/laravel/sail/compare/v1.8.5...v1.8.6)
+
+### Fixed
+- Fixes missing backslash ([#196](https://github.com/laravel/sail/pull/196))
+
+
+## [v1.8.5 (2021-07-13)](https://github.com/laravel/sail/compare/v1.8.4...v1.8.5)
+
+### Changed
+- Minio Console Port ([#188](https://github.com/laravel/sail/pull/188))
+
+
+## [v1.8.4 (2021-07-06)](https://github.com/laravel/sail/compare/v1.8.3...v1.8.4)
+
+### Changed
+- Update to Ubuntu 21.04 ([#177](https://github.com/laravel/sail/pull/177))
+- Add pcov to php 8.0 runtime ([#183](https://github.com/laravel/sail/pull/183))
+
+### Fixed
+- Append random subdomain by default ([#175](https://github.com/laravel/sail/pull/175))
+
+### Removed
+- Remove Unused SEDCMD ([#179](https://github.com/laravel/sail/pull/179))
+
+
+## [v1.8.3 (2021-06-29)](https://github.com/laravel/sail/compare/v1.8.2...v1.8.3)
+
+### Fixed
+- Revert Ubuntu 21.04 changes ([#174](https://github.com/laravel/sail/pull/174))
+
+
+## [v1.8.2 (2021-06-29)](https://github.com/laravel/sail/compare/v1.8.1...v1.8.2)
+
+### Changed
+- Share/Expose options and cleanup on exit ([#168](https://github.com/laravel/sail/pull/168), [44c7087](https://github.com/laravel/sail/commit/44c7087026a0637471e544237d608a2e1173dc77))
+- Update to Ubuntu 21.04 ([#169](https://github.com/laravel/sail/pull/169), [0df641d](https://github.com/laravel/sail/commit/0df641dd2d7f2f42d24aef638e2e579f6ac7e57c), [484b928](https://github.com/laravel/sail/commit/484b9284d46bfe3e1e6a2ed71477bb4b70166070))
+
+
+## [v1.8.1 (2021-06-08)](https://github.com/laravel/sail/compare/v1.8.0...v1.8.1)
+
+### Fixed
+- Fix if statement in `sail` binary ([414fd19](https://github.com/laravel/sail/commit/414fd19858379fd3c0277194904ffb95617d7ee6)
+
+
+## [v1.8.0 (2021-06-08)](https://github.com/laravel/sail/compare/v1.7.0...v1.8.0)
+
+### Added
+- Add proxy to vendor binaries ([#154](https://github.com/laravel/sail/pull/154))
+
+### Changed
+- Use node.js v16.x ([#155](https://github.com/laravel/sail/pull/155))
+- Update Sail script to only exit if Main Exits ([#156](https://github.com/laravel/sail/pull/156))
+
+### Fixed
+- Append MeiliSearch and MinIO to depends ([#151](https://github.com/laravel/sail/pull/151))
+- Append MeiliSearch HealthCheck ([#150](https://github.com/laravel/sail/pull/150))
+
+
+## [v1.7.0 (2021-05-25)](https://github.com/laravel/sail/compare/v1.6.0...v1.7.0)
+
+### Added
+- Add Redis CLI command ([#140](https://github.com/laravel/sail/pull/140))
+
+### Fixed
+- Add retries & timeout to healthcheck ([#143](https://github.com/laravel/sail/pull/143))
+
+
+## [v1.6.0 (2021-05-18)](https://github.com/laravel/sail/compare/v1.5.1...v1.6.0)
+
+### Added
+- Add MinIO to sail:install Command ([#128](https://github.com/laravel/sail/pull/128))
+
+### Changed
+- Clear pecl caches & tmp files during Swoole extension install ([#134](https://github.com/laravel/sail/pull/134))
+
+### Fixed
+- Fix mariaDB Health check ([#126](https://github.com/laravel/sail/pull/126))
+
+
+## [v1.5.1 (2021-05-11)](https://github.com/laravel/sail/compare/v1.5.0...v1.5.1)
+
+### Changed
+- Use MySQL shell when running mariadb ([#119](https://github.com/laravel/sail/pull/119))
+
+### Fixed
+- Fix mysql health check ([#125](https://github.com/laravel/sail/pull/125))
+
+
+## [v1.5.0 (2021-04-20)](https://github.com/laravel/sail/compare/v1.4.12...v1.5.0)
+
+### Added
+- MariaDB support ([#111](https://github.com/laravel/sail/pull/111))
+
+
+## [v1.4.12 (2021-04-13)](https://github.com/laravel/sail/compare/v1.4.11...v1.4.12)
+
+### Fixed
+- Load missing PECL package index before installing Swoole ([#94](https://github.com/laravel/sail/pull/94))
+
+
+## [v1.4.11 (2021-04-06)](https://github.com/laravel/sail/compare/v1.4.10...v1.4.11)
+
+### Changed
+- Add Swoole ([9cf7a28](https://github.com/laravel/sail/commit/9cf7a289fbae184f8468188c582ea5a604ac1012), [0706de0](https://github.com/laravel/sail/commit/0706de0c6a80e6f04861ffb875f9e13c63568ccb))
+
+
+## [v1.4.10 (2021-03-30)](https://github.com/laravel/sail/compare/v1.4.9...v1.4.10)
+
+### Changed
+- Database default user name and password ([#84](https://github.com/laravel/sail/pull/84))
+
+### Fixed
+- Patch issue with environment database password replacement ([#87](https://github.com/laravel/sail/pull/87))
+
+
+## [v1.4.9 (2021-03-23)](https://github.com/laravel/sail/compare/v1.4.8...v1.4.9)
+
+### Fixed
+- Use different DB user & password for Sail ([#75](https://github.com/laravel/sail/pull/75))
+
+
+## [v1.4.8 (2021-03-16)](https://github.com/laravel/sail/compare/v1.4.7...v1.4.8)
+
+### Fixed
+- Update the publish command to consider PHP 7.4 ([#68](https://github.com/laravel/sail/pull/68))
+
+
+## [v1.4.7 (2021-03-09)](https://github.com/laravel/sail/compare/v1.4.6...v1.4.7)
+
+### Fixed
+- Add missing PostgreSQL clients ([#64(https://github.com/laravel/sail/pull/64))
+- Use latest expose container ([cebaebc](https://github.com/laravel/sail/commit/cebaebc0bb3806f4cf7bc71564acbfe8c12a8923))
+
+
+## [v1.4.6 (2021-03-03)](https://github.com/laravel/sail/compare/v1.4.5...v1.4.6)
+
+### Fixed
+- Update share command ([59ee7e2](https://github.com/laravel/sail/commit/59ee7e2b2efeb644eabea719186db91d11666733))
+
+
+## [v1.4.5 (2021-03-03)](https://github.com/laravel/sail/compare/v1.4.4...v1.4.5)
+
+### Fixes
+- Replace `DB_PORT` and `DB_CONNECTION` for pgsql ([#63](https://github.com/laravel/sail/pull/63))
+- Update share command ([0348ec8](https://github.com/laravel/sail/commit/0348ec8c13fedc4bafc917b9d65721cd475390bf))
 
 
 ## [v1.4.4 (2021-03-02)](https://github.com/laravel/sail/compare/v1.4.3...v1.4.4)
