@@ -31,7 +31,7 @@ Add this to your project's `composer.json`:
     ]
 ```
 
-Make sure the version required is `"laravel/sail": "1.x-dev"`
+Make sure the version required is `"laravel/sail": "^1.4"`
 
 During `php artisan sail:install` set the option `--host` to the domain you'd like to use (without the protocol), otherwise it will default to [laravel.test](http://laravel.test). Don't forget to also add your chosen domain (or the default) to your hosts file and point it to `127.0.0.1`.
 
