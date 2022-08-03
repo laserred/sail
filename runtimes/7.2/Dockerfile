@@ -14,7 +14,7 @@ ENV TZ=UTC
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update \
-    && apt-get install -y gnupg gosu curl ca-certificates zip unzip git supervisor sqlite3 libcap2-bin libpng-dev python2 \
+    && apt-get install -y gnupg gosu curl ca-certificates zip unzip git supervisor sqlite3 libcap2-bin libpng-dev python2 imagemagick libmagickwand-dev php-pear \
     && mkdir -p ~/.gnupg \
     && chmod 600 ~/.gnupg \
     && echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf \
@@ -25,12 +25,14 @@ RUN apt-get update \
     && apt-get update \
     && apt-get install -y php7.2-cli php7.2-dev \
        php7.2-pgsql php7.2-sqlite3 php7.2-gd \
-       php7.2-curl php7.2-memcached \
+       php7.2-curl php7.2-common php7.2-memcached \
        php7.2-imap php7.2-mysql php7.2-mbstring \
        php7.2-xml php7.2-zip php7.2-bcmath php7.2-soap \
        php7.2-intl php7.2-readline php7.2-pcov \
        php7.2-msgpack php7.2-igbinary php7.2-ldap \
        php7.2-redis php7.2-xdebug \
+    && update-alternatives --set php /usr/bin/php7.2 \
+    && pecl channel-update pecl.php.net && pecl install imagick \
     && php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
     && curl -sLS https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - \
     && apt-get install -y nodejs \
@@ -55,6 +57,7 @@ RUN useradd -ms /bin/bash --no-user-group -g $WWWGROUP -u 1337 sail
 COPY start-container /usr/local/bin/start-container
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY php.ini /etc/php/7.2/cli/conf.d/99-sail.ini
+COPY imagick.ini /etc/php/7.2/cli/conf.d/20-imagick.ini
 RUN chmod +x /usr/local/bin/start-container
 
 EXPOSE 8000
