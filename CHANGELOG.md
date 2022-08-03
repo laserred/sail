@@ -1,6 +1,129 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/sail/compare/v1.13.7...1.x)
+## [Unreleased](https://github.com/laravel/sail/compare/v1.15.1...1.x)
+
+## [v1.15.1](https://github.com/laravel/sail/compare/v1.15.0...v1.15.1) - 2022-07-21
+
+### Fixed
+
+- Fix ubuntu versions for PHP 7.4 & 8.0 runtimes by @taylorotwell in https://github.com/laravel/sail/commit/2fe64c0b45a3af56cac0af638c8020a8adc860d7
+
+## [v1.15.0](https://github.com/laravel/sail/compare/v1.14.11...v1.15.0) - 2022-06-24
+
+### Added
+
+- Adds `sail pint` by @nunomaduro in https://github.com/laravel/sail/pull/439
+
+### Changed
+
+- Publish the Vite port by @jessarcher in https://github.com/laravel/sail/pull/433
+
+### Fixed
+
+- Fixed devcontainer permissions by @GoodM4ven in https://github.com/laravel/sail/pull/438
+- Update default PostgreSQL versions for PHP 8.0 and 7.4 runtimes by @driesvints in https://github.com/laravel/sail/pull/441
+
+## [v1.14.11](https://github.com/laravel/sail/compare/v1.14.10...v1.14.11) - 2022-06-14
+
+### Fixed
+
+- Revert "Expose 8080 port for hot module replacement" by @jessarcher in https://github.com/laravel/sail/pull/432
+
+## [v1.14.10](https://github.com/laravel/sail/compare/v1.14.9...v1.14.10) - 2022-06-09
+
+### Fixed
+
+- Fix testing DB creation by @jessarcher in https://github.com/laravel/sail/pull/429
+
+## [v1.14.9](https://github.com/laravel/sail/compare/v1.14.8...v1.14.9) - 2022-06-06
+
+### Changed
+
+- Allow for creation of databases needed for parallel testing by @bram-pkg in https://github.com/laravel/sail/pull/424
+
+## [v1.14.8](https://github.com/laravel/sail/compare/v1.14.7...v1.14.8) - 2022-05-31
+
+### Changed
+
+- Run supervisord with pid 1 by @ryoluo in https://github.com/laravel/sail/pull/419
+
+## [v1.14.7](https://github.com/laravel/sail/compare/v1.14.6...v1.14.7) - 2022-05-21
+
+### Changed
+
+- Update meilisearch stub to reflect new data path by @tdondich in https://github.com/laravel/sail/pull/414
+
+## [v1.14.6](https://github.com/laravel/sail/compare/v1.14.5...v1.14.6) - 2022-05-18
+
+### Fixed
+
+- Checks if docker compose or docker-compose is installed by @affektde in https://github.com/laravel/sail/pull/409
+
+## [v1.14.5](https://github.com/laravel/sail/compare/v1.14.4...v1.14.5) - 2022-05-16
+
+### Changed
+
+- Updated sail helps section by @mehdirajabi59 in https://github.com/laravel/sail/pull/407
+- Cleans up deprecated apt-key usage by @tbollinger in https://github.com/laravel/sail/pull/408
+- use docker compose (GO) by @erfantkerfan in https://github.com/laravel/sail/pull/405
+
+## [v1.14.4](https://github.com/laravel/sail/compare/v1.14.3...v1.14.4) - 2022-05-12
+
+### Fixed
+
+- Fixes incorrectly referenced distro https://github.com/laravel/sail/commit/0e0e51f19c758c79acbda11e3870641fbad5b7d9
+
+## [v1.14.3](https://github.com/laravel/sail/compare/v1.14.2...v1.14.3) - 2022-05-10
+
+### Changed
+
+- Changed Ubuntu 21.10 to Ubuntu 22.04 LTS by @mehdirajabi59 in https://github.com/laravel/sail/pull/395
+
+## [v1.14.2](https://github.com/laravel/sail/compare/v1.14.1...v1.14.2) - 2022-05-10
+
+### Fixed
+
+- Allow Sail to read from phpunit.xml and phpunit.xml.dist when running the install command by @kylemilloy in https://github.com/laravel/sail/pull/394
+- Fix missing usage of POSTGRES_VERSION by @driesvints in https://github.com/laravel/sail/pull/398
+
+## [v1.14.1](https://github.com/laravel/sail/compare/v1.14.0...v1.14.1) - 2022-05-02
+
+### Changed
+
+- Expose 8080 port for hot module replacement by @ryoluo in https://github.com/laravel/sail/pull/391
+
+## [v1.14.0](https://github.com/laravel/sail/compare/v1.13.10...v1.14.0) - 2022-04-27
+
+### Added
+
+- Create a dedicated testing database by @jessarcher in https://github.com/laravel/sail/pull/388
+
+### Fixed
+
+- Fix apt-key for WSL by @Evertt in https://github.com/laravel/sail/pull/389
+
+## [v1.13.10](https://github.com/laravel/sail/compare/v1.13.9...v1.13.10) - 2022-04-14
+
+### Fixed
+
+- Fix apt-key for WSL by @driesvints in https://github.com/laravel/sail/pull/384
+
+## [v1.13.9](https://github.com/laravel/sail/compare/v1.13.8...v1.13.9) - 2022-04-04
+
+### Changed
+
+- Update default PostgreSQL version to v14 by @ariaieboy in https://github.com/laravel/sail/pull/373
+
+## [v1.13.8](https://github.com/laravel/sail/compare/v1.13.7...v1.13.8) - 2022-03-23
+
+### Changed
+
+- Update ondrej/php Repository Details by @amayer5125 in https://github.com/laravel/sail/pull/360
+- Shell - display available commands / help section by @WalterWoshid in https://github.com/laravel/sail/pull/359
+
+### Fixes
+
+- Fixes docker-compose not found in non-bash shells by @ribeirobreno in https://github.com/laravel/sail/pull/364
 
 ## [v1.13.7](https://github.com/laravel/sail/compare/v1.13.6...v1.13.7) - 2022-03-15
 
