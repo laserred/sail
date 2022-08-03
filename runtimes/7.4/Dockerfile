@@ -33,6 +33,7 @@ RUN apt-get update \
        php7.4-redis php7.4-xdebug \
     && update-alternatives --set php /usr/bin/php7.4 \
     && pecl channel-update pecl.php.net && pecl install imagick \
+    && sed -i '/disable ghostscript format types/,+6d' /etc/ImageMagick-6/policy.xml \
     && php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
     && curl -sLS https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - \
     && apt-get install -y nodejs \

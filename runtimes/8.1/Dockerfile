@@ -33,6 +33,7 @@ RUN apt-get update \
        php8.1-msgpack php8.1-igbinary php8.1-redis php8.1-swoole \
        php8.1-memcached php8.1-pcov php8.1-xdebug \
     && update-alternatives --set php /usr/bin/php8.1 \
+    && sed -i '/disable ghostscript format types/,+6d' /etc/ImageMagick-6/policy.xml \
     && php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
     && curl -sLS https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - \
     && apt-get install -y nodejs \
