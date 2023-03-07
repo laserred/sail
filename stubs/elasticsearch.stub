@@ -1,5 +1,5 @@
     elasticsearch:
-         image: docker.elastic.co/elasticsearch/elasticsearch:6.8
+         image: docker.elastic.co/elasticsearch/elasticsearch:6.*
          environment:
              - discovery.type=single-node
          ports:
