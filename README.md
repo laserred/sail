@@ -39,7 +39,7 @@ During `php artisan sail:install` set the option `--host` to the domain you'd li
 
 `php artisan sail:install --with=mysql,redis,mailhog --host=host-name.local`
 
-## How to configure for Aero
+## How to configure for Aero (for a new site)
 
 First ensure you have the correct version of the aero cli tool installed globally.
 `composer global require aerocommerce/cli:dev-master#c31fe1bf53c05860ad45342106d028677f2bfa52`
@@ -62,11 +62,18 @@ REDIS_HOST=redis
 ELASTICSEARCH_HOST=elasticsearch
 CACHE_DRIVER=redis
 SESSION_DRIVER=redis
+AERO_THEME=vendor/<your-theme-name>
 ```
 
 You can now `sail up -d`
 
 Once sail has launched you can run the aero install with `sail artisan aero:install`
+
+Install a base theme
+`sail composer require aerocommerce/theme-ui aerocargo/listing-collections aerocommerce/account-area aerocommerce/components`
+
+Create your theme from the base theme
+`sail artisan theme:build vendor/<your-theme-name> --config=vendor/aerocommerce/theme-ui/config/phantom.yml`
 
 ## Official Documentation
 
