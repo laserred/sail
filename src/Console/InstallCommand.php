@@ -118,7 +118,7 @@ class InstallCommand extends Command
 
         $volumes = collect($services)
             ->filter(function ($service) {
-                return in_array($service, ['mysql', 'pgsql', 'mariadb', 'redis', 'meilisearch', 'minio']);
+                return in_array($service, ['mysql', 'pgsql', 'mariadb', 'redis', 'meilisearch', 'minio', 'elasticsearch']);
             })->map(function ($service) {
                 return "    sail-{$service}:\n        driver: local";
             })->whenNotEmpty(function ($collection) {
