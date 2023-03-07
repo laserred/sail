@@ -55,11 +55,14 @@ Set up sail with `php artisan sail:install --aero` the `--aero` flag will ensure
 
 Amend your docker compose to use the php 7.4 runtime ` context: ./vendor/laravel/sail/runtimes/7.4`
 Amend your .env to include:
-`DB_HOST=mysql`
-`REDIS_HOST=redis`
-`ELASTICSEARCH_HOST=elasticsearch`
-`CACHE_DRIVER=redis`
-`SESSION_DRIVER=redis`
+
+```
+DB_HOST=mysql
+REDIS_HOST=redis
+ELASTICSEARCH_HOST=elasticsearch
+CACHE_DRIVER=redis
+SESSION_DRIVER=redis
+```
 
 You can now `sail up -d`
 
