@@ -16,7 +16,8 @@ class InstallCommand extends Command
     protected $signature = 'sail:install
                 {--with= : The services that should be included in the installation}
                 {--host= : The domain to use without the protocol}
-                {--devcontainer : Create a .devcontainer configuration directory}';
+                {--devcontainer : Create a .devcontainer configuration directory}
+                {--aero : Enable elasticsearch and configure for aero}';
 
     /**
      * The console command description.
@@ -40,6 +41,7 @@ class InstallCommand extends Command
         'minio',
         'mailhog',
         'selenium',
+        'elasticsearch'
     ];
 
     /**
@@ -51,6 +53,8 @@ class InstallCommand extends Command
     {
         if ($this->option('with')) {
             $services = $this->option('with') == 'none' ? [] : explode(',', $this->option('with'));
+        } elseif ($this->option('aero')) {
+            $services = ['mysql', 'redis', 'mailhog', 'elasticsearch'];
         } elseif ($this->option('no-interaction')) {
             $services = ['mysql', 'redis', 'selenium', 'mailhog'];
         } else {
