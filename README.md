@@ -16,47 +16,69 @@
 
 Sail provides a Docker powered local development experience for Laravel that is compatible with macOS, Windows (WSL2), and Linux. Other than Docker, no software or libraries are required to be installed on your local computer before using Sail. Sail's simple CLI means you can start building your Laravel application without any previous Docker experience.
 
-This fork has been modified to include some extra ease-of-life features like an Nginx proxy for custom domains, Imagick support etc.
+> **Note**  
+> This fork has been modified to include some extra ease-of-life features like an Nginx proxy for custom domains, Imagick support etc.
 
-We should always require the `release` branch which is ours, that fixes some issues with pulling using their tags. This branch will always contain the latest updates.
+## Official Documentation
+
+Documentation for Sail can be found on the [Laravel website](https://laravel.com/docs/sail).
 
 ## Unofficial Documentation
 
-Add this to your project's `composer.json`:
+Before installing, you need to configure composer to use our remote repository:
 
-```
-    "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/laserred/sail.git"
-        }
-    ]
+```bash
+composer config repositories.repolaserred composer https://repo.laser.red
 ```
 
-Make sure the version required is `"laravel/sail": "dev-release"` - add this by doing `composer require laravel/sail:dev-release`.
+Now you can install Sail as normal by running:
 
-During `php artisan sail:install` set the option `--host` to the domain you'd like to use (without the protocol), otherwise it will default to [laravel.test](http://laravel.test). Don't forget to also add your chosen domain (or the default) to your hosts file and point it to `127.0.0.1`. For example:
-
-`php artisan sail:install --with=mysql,redis,mailhog --host=host-name.local`
-
-## How to configure for Aero (for a new site)
-
-First ensure you have the correct version of the aero cli tool installed globally.
-`composer global require aerocommerce/cli:dev-master#c31fe1bf53c05860ad45342106d028677f2bfa52`
-
-Find out where your globally installed composer packages are (mine live in ~/.config/composer/vendor/) and then either alias the aero command in your shell or run it from the path you found above.
-
-` ~/.config/composer/vendor/aerocommerce/cli/aero new --no-install --next`
-
-Amend your newly created composer.json to include this repository as explained above, and then `composer require laravel/sail:dev-feature-aero` (TODO: this will need changing to `dev-release` once merged).
-
-This may show an error message about tables not being found, ignore this, we just haven't installed aero yet.
-Set up sail with `php artisan sail:install --aero` the `--aero` flag will ensure elasticsearch is included in your docker compose.
-
-Amend your docker compose to use the php 7.4 runtime ` context: ./vendor/laravel/sail/runtimes/7.4`
-Amend your .env to include:
-
+```bash
+composer require laravel/sail --dev
 ```
+
+When configuring a new site and running `php artisan sail:install`, set the `--host` option to the domain you'd like to use (without the protocol), otherwise it will default to [laravel.test](http://laravel.test). Don't forget to also add your chosen domain (or the default) to your hosts file and point it to `127.0.0.1`. For example:
+
+```bash
+php artisan sail:install --with=mysql,redis,mailhog --host=my-site.local
+```
+
+## Aero Configuration
+
+Ensure you have the correct version of the Aero CLI tool installed globally:
+
+```bash
+composer global require aerocommerce/cli:dev-master#c31fe1bf53c05860ad45342106d028677f2bfa52
+```
+
+Now you can install Aero:
+
+```bash
+aero new --no-install --next
+```
+_The `--next` flag is currently required to get the latest Laravel base._
+
+> **Note**  
+> If this responds with `command not found` it likely means you don't have your global composer path in exported in your `$PATH`. You can find this path with `composer config --list --global | grep home` and then prepend that path so you have something like `~/.composer/vendor/bin/aero new --no-install --next`
+
+Now you can install Sail as normal by running:
+
+```bash
+composer require laravel/sail --dev
+```
+
+_This may show an error message about tables not being found, ignore this as we just haven't installed aero yet._
+
+When setting up Sail, ensure you add the `--aero` flag so it adds the correct services: 
+
+```bash
+php artisan sail:install --aero --host=my-site.local
+```
+
+Depending on your base Laravel version, amend your `docker-compose.yml` to use relevant PHP runtime, e.g. `context: ./vendor/laravel/sail/runtimes/7.4`
+
+Update your `.env` to include:
+```Dotenv
 DB_HOST=mysql
 REDIS_HOST=redis
 ELASTICSEARCH_HOST=elasticsearch
@@ -65,20 +87,22 @@ SESSION_DRIVER=redis
 AERO_THEME=vendor/<your-theme-name>
 ```
 
-You can now `sail up -d`
+Now you have all the defaults configured, you can start Sail:
+```bash
+sail up -d
+```
 
-Once sail has launched you can run the aero install with `sail artisan aero:install`
+And once sail has launched you can complete the Aero installation:
+```bash
+sail artisan aero:install
+```
 
-Install a base theme
-`sail composer require aerocommerce/theme-ui aerocargo/listing-collections aerocommerce/account-area aerocommerce/components`
+You can optionally install a base theme:
+```bash
+sail composer require aerocommerce/theme-ui aerocargo/listing-collections aerocommerce/account-area aerocommerce/components
+```
 
-Create your theme from the base theme
-`sail artisan theme:build vendor/<your-theme-name> --config=vendor/aerocommerce/theme-ui/config/phantom.yml`
-
-## Official Documentation
-
-Documentation for Sail can be found on the [Laravel website](https://laravel.com/docs/sail).
-
-## License
-
-Laravel Sail is open-sourced software licensed under the [MIT license](LICENSE.md).
+Or create your theme from the base theme:
+```bash
+sail artisan theme:build vendor/<your-theme-name> --config=vendor/aerocommerce/theme-ui/config/phantom.yml
+```
