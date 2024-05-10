@@ -48,8 +48,14 @@ php artisan sail:install --with=mysql,redis,mailhog --host=my-site.local
 Ensure you have the correct version of the Aero CLI tool installed globally:
 
 ```bash
-composer global require aerocommerce/cli:dev-master#c31fe1bf53c05860ad45342106d028677f2bfa52
+composer global require aerocommerce/cli
 ```
+
+In order to create a new aero project you will need first to register it on AGORA 
+
+[agora.aerocommerce.com]( https://agora.aerocommerce.com).
+
+Go the projects tab and create a new project giving it a name and a domain , once this has been completed you should be presented with a username and password.
 
 Now you can install Aero:
 
@@ -75,7 +81,13 @@ When setting up Sail, ensure you add the `--aero` flag so it adds the correct se
 php artisan sail:install --aero --host=my-site.local
 ```
 
-Depending on your base Laravel version, amend your `docker-compose.yml` to use relevant PHP runtime, e.g. `context: ./vendor/laravel/sail/runtimes/7.4`
+Depending on your base Laravel version, check that the docker-compose.yml is provisioned with the correct php version for the application by altering the lines, e.g. 
+
+`context: ./vendor/laravel/sail/runtimes/8.2`
+
+and 
+
+`image: sail-8.2/app `
 
 Update your `.env` to include:
 ```Dotenv
@@ -84,25 +96,44 @@ REDIS_HOST=redis
 ELASTICSEARCH_HOST=elasticsearch
 CACHE_DRIVER=redis
 SESSION_DRIVER=redis
-AERO_THEME=vendor/<your-theme-name>
 ```
+
+If the app service env variable hasn't been created, add it to the env file and name it after what is on line 4 in your docker-compose.yml e.g.
+
+`APP_SERVICE=aero-test.local`
+
+> **Note**  
+> From this point onwards all composer commands will need to be run inside the container I.E sail composer install, not composer install.
+
 
 Now you have all the defaults configured, you can start Sail:
 ```bash
 sail up -d
 ```
 
-And once sail has launched you can complete the Aero installation:
+Run aero install from inside our container
 ```bash
 sail artisan aero:install
 ```
 
-You can optionally install a base theme:
+When prompted, enter the username and password from the Project you set up in agora, this will install a fresh instance of aero.
+
+In order to set up a theme for our project we will need to install some prerequisites
+
 ```bash
 sail composer require aerocommerce/theme-ui aerocargo/listing-collections aerocommerce/account-area aerocommerce/components
 ```
 
-Or create your theme from the base theme:
+Now install the skeleton theme and answer yes when prompted to activate:
+
 ```bash
-sail artisan theme:build vendor/<your-theme-name> --config=vendor/aerocommerce/theme-ui/config/phantom.yml
+sail artisan theme:install aero/skeleton --name=skeleton
+```
+
+This should now have installed a skeleton theme you can now work from.
+
+If you would like to import some test products into your application for testing purposes you can run the following command.
+
+```bash
+sail artisan aero:import:products:csv https://aero-data.s3.eu-west-2.amazonaws.com/furniture.csv
 ```
