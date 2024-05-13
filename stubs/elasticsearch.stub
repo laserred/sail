@@ -1,11 +1,11 @@
-    elasticsearch:
-         image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
-         environment:
-             - discovery.type=single-node
-         ports:
-             - 9200:9200
-             - 9300:9300
-         volumes:
-             - sail-elasticsearch:/usr/share/elasticsearch/data
-         networks:
-             - sail 
+elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
+    environment:
+        - discovery.type=single-node
+    ports:
+        - 9200:9200
+        - 9300:9300
+    volumes:
+        - sail-elasticsearch:/usr/share/elasticsearch/data
+    networks:
+        - sail

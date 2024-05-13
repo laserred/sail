@@ -25,6 +25,16 @@ Documentation for Sail can be found on the [Laravel website](https://laravel.com
 
 ## Unofficial Documentation
 
+### Compatibility
+The release of packages is handled by [repo.laser.red](https://repo.laser.red), therefore the versions are managed independently of the official Laravel Sail package. The following table shows the compatibility of the versions:
+
+| Version | L6                 | L7                 | L8                 | L9                 | L10                | L11                |
+|---------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
+| 1.1.0   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                |
+| 2.0.0   | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+
+
+### Installation
 Before installing, you need to configure composer to use our remote repository:
 
 ```bash
@@ -40,7 +50,7 @@ composer require laravel/sail --dev
 When configuring a new site and running `php artisan sail:install`, set the `--host` option to the domain you'd like to use (without the protocol), otherwise it will default to [laravel.test](http://laravel.test). Don't forget to also add your chosen domain (or the default) to your hosts file and point it to `127.0.0.1`. For example:
 
 ```bash
-php artisan sail:install --with=mysql,redis,mailhog --host=my-site.local
+php artisan sail:install --with=mysql,redis,mailpit --host=my-site.local
 ```
 
 ## Aero Configuration
