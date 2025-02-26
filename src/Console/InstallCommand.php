@@ -19,8 +19,9 @@ class InstallCommand extends Command
      */
     protected $signature = 'sail:install
                 {--with= : The services that should be included in the installation}
-                {--host= : The domain to use without the protocol}
                 {--devcontainer : Create a .devcontainer configuration directory}
+                {--php=8.4 : The PHP version that should be used}
+                {--host= : The domain to use without the protocol}
                 {--aero : Enable elasticsearch and configure for aero}';
 
     /**
