@@ -22,10 +22,10 @@ Documentation for Sail can be found on the [Laravel website](https://laravel.com
 ### Compatibility
 The release of packages is handled by [repo.laser.red](https://repo.laser.red), therefore the versions are managed independently of the official Laravel Sail package. The following table shows the compatibility of the versions:
 
-| Version | L6                 | L7                 | L8                 | L9                 | L10                | L11                | L12                |
-|---------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
-| 1.1.0   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                |
-| 2.0.0   | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Version | L6                 | L7                 | L8                 | L9                 | L10                | L11                | L12                | L13                |
+|---------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
+| 1.1.0   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                |
+| 2.0.0   | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
 
 ### Installation

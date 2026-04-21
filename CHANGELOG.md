@@ -1,6 +1,28 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/sail/compare/v1.52.0...1.x)
+## [Unreleased](https://github.com/laravel/sail/compare/v1.57.0...1.x)
+
+## [v1.57.0](https://github.com/laravel/sail/compare/v1.56.0...v1.57.0) - 2026-04-14
+
+* Forward AI agent env vars into Docker containers by [@pushpak1300](https://github.com/pushpak1300) in https://github.com/laravel/sail/pull/862
+* Add missing AI agent env vars for Copilot CLI and Pi by [@pushpak1300](https://github.com/pushpak1300) in https://github.com/laravel/sail/pull/865
+
+## [v1.56.0](https://github.com/laravel/sail/compare/v1.55.0...v1.56.0) - 2026-04-01
+
+* Enable php8.5-swoole in Dockerfile by [@mihaileu](https://github.com/mihaileu) in https://github.com/laravel/sail/pull/859
+
+## [v1.55.0](https://github.com/laravel/sail/compare/v1.54.0...v1.55.0) - 2026-03-23
+
+* introduce new SAIL_DOCKER_BINARY env for podman support by [@Vringe](https://github.com/Vringe) in https://github.com/laravel/sail/pull/857
+
+## [v1.54.0](https://github.com/laravel/sail/compare/v1.53.0...v1.54.0) - 2026-03-11
+
+* Use UTF-8 locale inside container by [@MrMeshok](https://github.com/MrMeshok) in https://github.com/laravel/sail/pull/849
+
+## [v1.53.0](https://github.com/laravel/sail/compare/v1.52.0...v1.53.0) - 2026-02-06
+
+* Switch Yarn installation to Corepack in Dockerfiles by [@arjankapteijn](https://github.com/arjankapteijn) in https://github.com/laravel/sail/pull/846
+* Supports Laravel 13 by [@crynobone](https://github.com/crynobone) in https://github.com/laravel/sail/pull/847
 
 ## [v1.52.0](https://github.com/laravel/sail/compare/v1.51.0...v1.52.0) - 2026-01-01
 
