@@ -1,6 +1,36 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/sail/compare/v1.57.0...1.x)
+## [Unreleased](https://github.com/laravel/sail/compare/v1.63.0...1.x)
+
+## [v1.63.0](https://github.com/laravel/sail/compare/v1.62.0...v1.63.0) - 2026-06-18
+
+* Add Dependabot cooldown of 5 days by [@nunomaduro](https://github.com/nunomaduro) in https://github.com/laravel/sail/pull/876
+* Enable Dependabot auto-merge by [@nunomaduro](https://github.com/nunomaduro) in https://github.com/laravel/sail/pull/877
+* Bump actions/checkout from 6.0.2 to 6.0.3 in the github-actions group by [@dependabot](https://github.com/dependabot)[bot] in https://github.com/laravel/sail/pull/878
+* [1.x] Add PHP_EXTENSIONS build arg to install additional PHP extensions by [@sydgren](https://github.com/sydgren) in https://github.com/laravel/sail/pull/879
+* Bump shivammathur/setup-php from 2.37.1 to 2.37.2 in the github-actions group by [@dependabot](https://github.com/dependabot)[bot] in https://github.com/laravel/sail/pull/880
+
+## [v1.62.0](https://github.com/laravel/sail/compare/v1.61.0...v1.62.0) - 2026-05-27
+
+**Full Changelog**: https://github.com/laravel/sail/compare/v1.61.0...v1.62.0
+
+## [v1.61.0](https://github.com/laravel/sail/compare/v1.60.0...v1.61.0) - 2026-05-23
+
+* [1.x] Fix RabbitMQ service stub using invalid env var names (#873) by [@YoussefMansour9](https://github.com/YoussefMansour9) in https://github.com/laravel/sail/pull/874
+
+## [v1.60.0](https://github.com/laravel/sail/compare/v1.59.0...v1.60.0) - 2026-05-14
+
+* Pin GitHub Actions to commit SHAs and add Dependabot config by [@joetannenbaum](https://github.com/joetannenbaum) in https://github.com/laravel/sail/pull/870
+* Bump shivammathur/setup-php from 2.37.0 to 2.37.1 in the github-actions group by [@dependabot](https://github.com/dependabot)[bot] in https://github.com/laravel/sail/pull/872
+* Manually install corepack to support Node 25+ by [@A-Loot](https://github.com/A-Loot) in https://github.com/laravel/sail/pull/871
+
+## [v1.59.0](https://github.com/laravel/sail/compare/v1.58.0...v1.59.0) - 2026-05-13
+
+* Backport 8.5 Dockerfile to 8.4, 8.3, 8.2, 8.1 and 8.0 by [@A-Loot](https://github.com/A-Loot) in https://github.com/laravel/sail/pull/869
+
+## [v1.58.0](https://github.com/laravel/sail/compare/v1.57.0...v1.58.0) - 2026-04-27
+
+* Add new AI agent env vars by [@pushpak1300](https://github.com/pushpak1300) in https://github.com/laravel/sail/pull/867
 
 ## [v1.57.0](https://github.com/laravel/sail/compare/v1.56.0...v1.57.0) - 2026-04-14
 
